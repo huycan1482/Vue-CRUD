@@ -26,17 +26,22 @@ class UserController extends Controller
 
     public function show ($id) 
     {
-
+        $user = User::find($id);
+        return response()->json(['success' => true, 'data' => $user]);
     }
 
     public function store (Request $request)
     {
-
+        return response()->json(['success' => true, 'data' => []]);
     }
 
-    public function update (Request $request)
+    public function update (Request $request, $id)
     {
-
+        $user = User::find($id);
+        if (!empty($user)) {
+            $user->save($request->all());
+        }
+        return response()->json(['success' => true, 'data' => $user]);
     }
 
     public function destroy ($id) 

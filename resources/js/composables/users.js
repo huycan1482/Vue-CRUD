@@ -21,7 +21,7 @@ export default function useUser() {
     const storeUser = async (data) => {
         errors.value = ''
         try {
-            await axios.post('/api/users/', data)
+            await axios.post('/api/users', data)
             await router.push({name: 'users.index'})
         } catch (e) {
             if (e.response.status === 422) {

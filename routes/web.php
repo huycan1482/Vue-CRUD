@@ -13,16 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', function () {
-    return view('welcome');
-});
+// Route::get('/{any}/{any}', function () {
+//     dd("huy");
+//     return view('welcome');
+// });
+
+Route::view('/{any}', 'welcome')
+    ->where('any', '^(?!api).*$');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-// Route::view('/{any}', 'dashboard')
-//     ->middleware('auth')
-//     ->where('any', '.*');
-
-// require __DIR__.'/auth.php';

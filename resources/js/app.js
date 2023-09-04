@@ -1,7 +1,9 @@
+require('./bootstrap')
 import { createApp } from "vue";
 import router from "./router"
-import App from "./App.vue"
-import CompanyIndex from "./components/companies/CompanyIndex.vue"
+
+// import App from "./App.vue"
+// import CompanyIndex from "./components/companies/CompanyIndex.vue"
 
 // createApp({
 //     components: {
