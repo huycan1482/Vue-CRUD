@@ -15,7 +15,8 @@
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
                     <td>
-                        <!-- <router-link :to="{ name: 'user.edit', params: { id: user.id } }" class="btn btn-primary">Action</router-link> -->
+                        <router-link :to="{ name: 'user.edit', params: { id: user.id } }" class="btn btn-primary me-3">Edit</router-link>
+                        <div @click="deleteUser(user.id)" class="btn btn-primary">Delete</div>
                     </td>
                 </tr>
             </tbody>
@@ -30,10 +31,20 @@ import { onMounted } from "vue";
 export default {
     name: 'UserList',
     setup() {
-        const { users, getUsers } = useUser()
+        const { users, getUsers, destroyUser } = useUser()
         onMounted(getUsers)
+
+        const deleteUser = async (id) => {
+            if (!window.confirm('Delete?')) {
+                return
+            }
+            await destroyUser(id);
+            await getUsers();
+        }
+
         return {
-            users
+            users,
+            deleteUser
         }
     }
 }

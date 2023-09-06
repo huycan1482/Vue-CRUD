@@ -38,9 +38,13 @@ export default {
         })
 
         const { errors, user, getUser, updateUser, storeUser } = useUser()
+            // onMounted(getUser(props.userId))
 
         if (props.userId) {
-            onMounted(getUser(props.userId))
+
+            onMounted(() => {
+              getUser(props.userId)
+            })
             form = user;
         }
 
@@ -55,7 +59,8 @@ export default {
             saveUser,
             errors
         }
-    }
+    },
+
 }
 </script>
 
