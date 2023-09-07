@@ -18,7 +18,6 @@
                 </div>
             </header>
             <main>
-                <router-view/>
                 {{-- {{ $slot }} --}}
             </main>
         </div>
