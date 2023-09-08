@@ -1,8 +1,14 @@
-<script>
+<template>
+    <p>Hello world</p>
+    <router-view/>
+</template>
 
+<script>
+export default {
+
+}
 </script>
 
-<template>
-    <router-view/>
-    <p>Hello world</p>
-</template>
+<style>
+
+</style>
